@@ -1,5 +1,5 @@
 ### EX6 Information Retrieval Using Vector Space Model in Python
-### DATE:
+### DATE: 
 ### AIM: To implement Information Retrieval Using Vector Space Model in Python.
 ### Description: 
 <div align = "justify">
@@ -15,8 +15,10 @@ sklearn to demonstrate Information Retrieval using the Vector Space Model.
 5. Execute a sample query and display the search results along with similarity scores.
 
 ### Program:
-
-```python
+```
+import nltk
+nltk.download('punkt')
+nltk.download('stopwords')
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from nltk.tokenize import word_tokenize
@@ -60,25 +62,26 @@ def search(query, tfidf_matrix, tfidf_vectorizer):
     # Return sorted documents along with their similarity scores
     results = [(documents[i], similarity_scores[0, i]) for i in sorted_indexes]
     return results
+
 # Example query
-query =input("Enter query: ")
+query=input("Enter the query: ")
 
 # Perform search
 search_results = search(query, tfidf_matrix, tfidf_vectorizer)
 
 # Display search results
 i=1
+print("Query:", query)
+
 for result in search_results:
-    print("----------------------")
-    print("\nRank: ",i)
+    print("\nRank :",i)
     print("Document:", result[0])
     print("Similarity Score:", result[1])
-
+    print("----------------------")
     i=i+1
 ```
 ### Output:
-![image](https://github.com/21005984/WDM_EXP6/assets/94748389/eaea3a2e-9317-4e73-83f2-d8153afef6d5)
+![e 6](https://github.com/user-attachments/assets/dc68c02d-c50a-4364-bce7-a79e00328b69)
 
 ### Result:
 Thus, the implementation of Information Retrieval Using Vector Space Model in Python is executed successfully.
-
